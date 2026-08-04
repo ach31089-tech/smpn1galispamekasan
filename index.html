@@ -117,11 +117,10 @@
             color: #f6c90e;
         }
 
-        /* 4. HERO BANNER UTAMA (LATAR BELAKANG FOTO SEKOLAH + JARGON) */
+        /* 4. HERO BANNER UTAMA */
         .hero-banner {
-            /* Ganti URL gambar di bawah dengan foto gedung/gerbang sekolah Anda */
             background: linear-gradient(rgba(15, 32, 67, 0.75), rgba(15, 32, 67, 0.75)), 
-                       <img src="https://drive.google.com/uc?export=view&id=1ItjbNmiwzeJ_MQ_WSynB16qDB9HwTUC7" alt="Gambar">
+                        url('https://lh3.googleusercontent.com/d/1ItjbNmiwzeJ_MQ_WSynB16qDB9HwTUC7') center/cover no-repeat;
             padding: 5rem 1rem;
             color: #ffffff;
             text-align: center;
@@ -130,6 +129,7 @@
         .hero-content {
             max-width: 900px;
             margin: 0 auto;
+            margin-top: 5.5rem;
         }
 
         .hero-content h1 {
@@ -231,6 +231,30 @@
             transform: translateY(-4px);
         }
 
+        /* Styling Khusus Kartu Guru */
+        .foto-guru {
+            width: 100%;
+            max-width: 160px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 2px solid #1e56a0;
+            margin-bottom: 0.8rem;
+        }
+
+        .nip-guru {
+            font-size: 0.8rem;
+            color: #666666;
+            margin-top: 0.2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .mapel-guru {
+            font-size: 0.85rem;
+            color: #163172;
+            font-weight: 600;
+        }
+
         .info-box {
             background: #ffffff;
             padding: 2.2rem;
@@ -293,6 +317,7 @@
             nav ul { flex-wrap: wrap; justify-content: center; margin-top: 0.5rem; }
             .kepsek-wrapper { flex-direction: column; align-items: center; text-align: center; }
             .hero-banner { padding: 3rem 1rem; }
+            .hero-content { margin-top: 1.5rem; }
             .hero-content h1 { font-size: 1.8rem; }
             .hero-content .jargon { font-size: 1rem; }
         }
@@ -307,7 +332,6 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#profil">Profil</a></li>
-                <!-- Menu Dropdown 8 SNP -->
                 <li class="dropdown">
                     <a href="#snp">8 SNP ▾</a>
                     <ul class="dropdown-menu">
@@ -339,7 +363,7 @@
         </div>
     </div>
 
-    <!-- 1. HERO BANNER: LATAR BELAKANG FOTO SEKOLAH + UCAPAN & JARGON -->
+    <!-- HERO BANNER -->
     <section id="home" class="hero-banner">
         <div class="hero-content">
             <h1>Selamat Datang di SMPN 1 Galis Pamekasan</h1>
@@ -349,14 +373,14 @@
 
     <div class="container">
 
-        <!-- 2. SEKAPUR SIRIH KEPALA SEKOLAH -->
+        <!-- SEKAPUR SIRIH KEPALA SEKOLAH -->
         <section id="sekapur-sirih">
             <h2>Sekapur Sirih Kepala Sekolah</h2>
             <div class="info-box sambutan-box">
                 <div class="kepsek-wrapper">
                     <div class="foto-kepsek-container">
-                        <img src="https://via.placeholder.com/200x250?text=Foto+Kepala+Sekolah" alt="Foto Kepala Sekolah SMPN 1 Galis" class="foto-kepsek">
-                        <p class="nama-kepsek"><strong>Nama Kepala Sekolah, S.Pd., M.Pd.</strong></p>
+                        <img src="https://lh3.googleusercontent.com/d/1D2FJFV9_-omCQG_WEPsVVC1vKBXaDQL5" alt="Foto Kepala Sekolah SMPN 1 Galis" class="foto-kepsek">
+                        <p class="nama-kepsek"><strong>Yudia Pertiwi, S.Kom., M.Pd.</strong></p>
                         <p class="jabatan-kepsek">Kepala SMPN 1 Galis Pamekasan</p>
                     </div>
 
@@ -381,7 +405,7 @@
             </div>
         </section>
 
-        <!-- 3. PROFIL SEKOLAH -->
+        <!-- PROFIL SEKOLAH -->
         <section id="profil">
             <h2>Profil Sekolah</h2>
             <div class="info-box">
@@ -391,7 +415,7 @@
             </div>
         </section>
 
-        <!-- 4. SECTION 8 SNP -->
+        <!-- 8 SNP -->
         <section id="snp">
             <h2>8 Standar Nasional Pendidikan (SNP)</h2>
             <div class="grid">
@@ -430,13 +454,15 @@
             </div>
         </section>
 
-        <!-- 5. GURU & STAF -->
+        <!-- GURU & STAF -->
         <section id="guru">
             <h2>Guru & Staf Pendidik</h2>
             <div class="grid">
-                <div class="card">
-                    <h3>Tenaga Pendidik MIPA</h3>
-                    <p>Tim Guru Matematika & IPA</p>
+                <div class="card card-guru">
+                    <img src="https://lh3.googleusercontent.com/d/1lfDGph0QWJaHodQihhcWOrHqunK-TjC1" alt="Foto WIWIK ASRIYAH" class="foto-guru">
+                    <h3>WIWIK ASRIYAH</h3>
+                    <p class="nip-guru">NIP. 199304032024212012</p>
+                    <p class="mapel-guru">Tenaga Pendidik MIPA | Mapel: KKA</p>
                 </div>
                 <div class="card">
                     <h3>Tenaga Pendidik Bahasa</h3>
@@ -453,7 +479,7 @@
             </div>
         </section>
 
-        <!-- 6. GALERI -->
+        <!-- GALERI -->
         <section id="galeri">
             <h2>Galeri Kegiatan</h2>
             <div class="grid">
@@ -464,7 +490,7 @@
             </div>
         </section>
 
-        <!-- 7. BUKU TAMU DIGITAL -->
+        <!-- BUKU TAMU DIGITAL -->
         <section id="buku-tamu">
             <h2>📖 Buku Tamu Digital</h2>
             <div class="info-box">
@@ -486,7 +512,7 @@
             </div>
         </section>
 
-        <!-- 8. FORMULIR SPMB ONLINE -->
+        <!-- FORMULIR SPMB ONLINE -->
         <section id="spmb">
             <h2>Pendaftaran SPMB Online</h2>
             <div class="info-box">
@@ -508,7 +534,7 @@
             </div>
         </section>
 
-        <!-- 9. PELAYANAN PUBLIK -->
+        <!-- PELAYANAN PUBLIK -->
         <section id="pelayanan-publik">
             <h2>Pelayanan Publik</h2>
             <div class="info-box">
@@ -516,7 +542,7 @@
             </div>
         </section>
 
-        <!-- 10. INOVASI SEKOLAH -->
+        <!-- INOVASI SEKOLAH -->
         <section id="inovasi">
             <h2>Inovasi Sekolah</h2>
             <div class="grid">
@@ -531,7 +557,7 @@
             </div>
         </section>
 
-        <!-- 11. KONTAK -->
+        <!-- KONTAK -->
         <section id="kontak">
             <h2>Kontak & Alamat</h2>
             <div class="info-box">
@@ -546,13 +572,11 @@
         <p>&copy; 2026 SMP Negeri 1 Galis Pamekasan. Seluruh Hak Cipta Dilindungi.</p>
     </footer>
 
-    <!-- JAVASCRIPT INTEGRASI GOOGLE SHEETS (MODE NO-CORS) -->
+    <!-- JAVASCRIPT INTEGRASI GOOGLE SHEETS -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Ganti string di bawah dengan URL Deploy Apps Script Google Sheets Anda
             const SCRIPT_URL = "PASTE_URL_APPS_SCRIPT_DI_SINI";
 
-            // 1. PROSES FORM BUKU TAMU
             const formBukuTamu = document.getElementById('formBukuTamu');
             if (formBukuTamu) {
                 formBukuTamu.addEventListener('submit', function(e) {
@@ -583,7 +607,6 @@
                 });
             }
 
-            // 2. PROSES FORM SPMB
             const formSPMB = document.getElementById('formSPMB');
             if (formSPMB) {
                 formSPMB.addEventListener('submit', function(e) {
