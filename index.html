@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMP Negeri 1 Galis Pamekasan - Official Website</title>
     
-    <!-- CSS INTERNAL (TERINTEGRASI SANGAT RAPI) -->
     <style>
         /* 1. RESET & BASE STYLES */
         * {
@@ -22,7 +21,7 @@
             line-height: 1.6;
         }
 
-        /* 2. RUNNING TEXT / MARQUEE */
+        /* 2. RUNNING TEXT */
         .running-text-container {
             background-color: #f6c90e;
             color: #163172;
@@ -45,7 +44,7 @@
             100% { transform: translate(-100%, 0); }
         }
 
-        /* 3. HEADER & NAVIGATION */
+        /* 3. HEADER & DROPDOWN NAVIGATION */
         header {
             background-color: #1e56a0;
             color: #ffffff;
@@ -65,72 +64,139 @@
             letter-spacing: 0.5px;
         }
 
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        nav li {
+            position: relative;
+        }
+
         nav a {
             color: #ffffff;
             text-decoration: none;
-            margin-left: 1.2rem;
+            padding: 0.5rem 0.8rem;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            display: block;
             transition: color 0.2s ease;
         }
 
         nav a:hover {
             color: #f6c90e;
-            text-decoration: underline;
         }
 
-        /* 4. HERO BANNER */
-        .hero {
-            background: linear-gradient(rgba(30, 86, 160, 0.85), rgba(30, 86, 160, 0.85)), 
-                        url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80') center/cover;
+        /* Sub Menu Dropdown 8 SNP */
+        nav li.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #163172;
+            min-width: 270px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 0 0 6px 6px;
+            padding: 0.5rem 0;
+            z-index: 1001;
+        }
+
+        .dropdown-menu li a {
+            padding: 0.6rem 1rem;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #1e56a0;
+            color: #f6c90e;
+        }
+
+        /* 4. HERO BANNER UTAMA (LATAR BELAKANG FOTO SEKOLAH + JARGON) */
+        .hero-banner {
+            /* Ganti URL gambar di bawah dengan foto gedung/gerbang sekolah Anda */
+            background: linear-gradient(rgba(15, 32, 67, 0.75), rgba(15, 32, 67, 0.75)), 
+                        url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+            padding: 5rem 1rem;
             color: #ffffff;
             text-align: center;
-            padding: 4.5rem 1rem;
         }
 
-        .hero h1 {
-            font-size: 2.3rem;
-            margin-bottom: 0.6rem;
-            font-weight: 700;
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .hero p {
-            font-size: 1.15rem;
-            margin-bottom: 1.8rem;
-            opacity: 0.95;
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .btn-cta {
-            background-color: #f6c90e;
+        .hero-content .jargon {
+            font-size: 1.25rem;
+            color: #f6c90e;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* 5. SEKAPUR SIRIH STYLE */
+        .sambutan-box {
+            border-left: 5px solid #1e56a0;
+        }
+
+        .kepsek-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .foto-kepsek-container {
+            text-align: center;
+            flex: 0 0 200px;
+        }
+
+        .foto-kepsek {
+            width: 100%;
+            max-width: 200px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid #1e56a0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            margin-bottom: 0.8rem;
+        }
+
+        .nama-kepsek {
             color: #163172;
-            padding: 0.82rem 1.6rem;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 6px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            display: inline-block;
-            margin: 0.3rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            font-size: 1rem;
         }
 
-        .btn-cta:hover {
-            background-color: #e0b300;
-            transform: translateY(-2px);
+        .jabatan-kepsek {
+            font-size: 0.85rem;
+            color: #666666;
         }
 
-        .btn-cta.secondary {
-            background-color: #ffffff;
-            color: #1e56a0;
+        .teks-sambutan {
+            flex: 1;
+            line-height: 1.7;
+            color: #333333;
         }
 
-        .btn-cta.secondary:hover {
-            background-color: #f0f4f8;
-        }
-
-        /* 5. LAYOUT & CONTAINERS */
+        /* 6. LAYOUT & CONTAINERS */
         .container {
             max-width: 1100px;
-            margin: 2.5rem auto;
+            margin: 3rem auto;
             padding: 0 1rem;
         }
 
@@ -147,7 +213,7 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 1.5rem;
         }
 
@@ -172,56 +238,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
 
-        /* 6. STYLE SEKAPUR SIRIH KEPALA SEKOLAH */
-        .sambutan-box {
-            border-left: 5px solid #1e56a0;
-        }
-
-        .kepsek-wrapper {
-            display: flex;
-            flex-direction: row;
-            gap: 2rem;
-            align-items: flex-start;
-        }
-
-        .foto-kepsek-container {
-            text-align: center;
-            flex: 0 0 200px;
-        }
-
-        .foto-kepsek {
-            width: 100%;
-            max-width: 200px;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 3px solid #1e56a0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            margin-bottom: 0.8rem;
-        }
-
-        .nama-kepsek {
-            color: #163172;
-            font-size: 1rem;
-        }
-
-        .jabatan-kepsek {
-            font-size: 0.85rem;
-            color: #666666;
-        }
-
-        .teks-sambutan {
-            flex: 1;
-            line-height: 1.7;
-            color: #444444;
-        }
-
-        .teks-sambutan h3 {
-            color: #1e56a0;
-            margin-bottom: 0.5rem;
-        }
-
-        /* 7. FORMS (BUKU TAMU & SPMB) */
+        /* 7. FORMS & BUTTONS */
         form {
             display: flex;
             flex-direction: column;
@@ -240,13 +257,6 @@
             border-radius: 6px;
             font-size: 0.98rem;
             width: 100%;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        form input:focus, form select:focus, form textarea:focus {
-            outline: none;
-            border-color: #1e56a0;
-            box-shadow: 0 0 0 3px rgba(30, 86, 160, 0.15);
         }
 
         form button {
@@ -258,8 +268,7 @@
             font-weight: 700;
             border-radius: 6px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 0.5rem;
+            transition: background-color 0.2s;
         }
 
         form button:hover {
@@ -271,66 +280,21 @@
             cursor: not-allowed;
         }
 
-        /* 8. ALERTS & NOTIFICATIONS */
-        .alert {
-            padding: 1rem;
-            border-radius: 6px;
-            margin-bottom: 1.2rem;
-            text-align: center;
-            font-weight: 600;
-            display: none;
-        }
-
-        .alert-success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .alert-error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-
-        /* 9. FOOTER */
         footer {
             background-color: #163172;
             color: #ffffff;
             text-align: center;
             padding: 1.8rem;
             margin-top: 3rem;
-            font-size: 0.95rem;
         }
 
-        /* 10. RESPONSIVE DESIGN */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 0.8rem;
-                padding: 1rem;
-            }
-            nav a {
-                margin: 0 0.4rem;
-                font-size: 0.9rem;
-            }
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
-            .info-box {
-                padding: 1.5rem;
-            }
-            .kepsek-wrapper {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .foto-kepsek-container {
-                flex: auto;
-            }
+        @media (max-width: 900px) {
+            header { flex-direction: column; }
+            nav ul { flex-wrap: wrap; justify-content: center; margin-top: 0.5rem; }
+            .kepsek-wrapper { flex-direction: column; align-items: center; text-align: center; }
+            .hero-banner { padding: 3rem 1rem; }
+            .hero-content h1 { font-size: 1.8rem; }
+            .hero-content .jargon { font-size: 1rem; }
         }
     </style>
 </head>
@@ -340,64 +304,75 @@
     <header>
         <div class="logo">🏫 SMPN 1 Galis</div>
         <nav>
-            <a href="#beranda">Beranda</a>
-            <a href="#sekapur-sirih">Sambutan</a>
-            <a href="#profil">Profil</a>
-            <a href="#guru">Guru & Staf</a>
-            <a href="#galeri">Galeri</a>
-            <a href="#buku-tamu">📖 Buku Tamu</a>
-            <a href="#spmb">SPMB Online</a>
-            <a href="#kontak">Kontak</a>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#profil">Profil</a></li>
+                <!-- Menu Dropdown 8 SNP -->
+                <li class="dropdown">
+                    <a href="#snp">8 SNP ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#skl">Standar Kompetensi Lulusan (SKL)</a></li>
+                        <li><a href="#standar-isi">Standar Isi</a></li>
+                        <li><a href="#standar-proses">Standar Proses</a></li>
+                        <li><a href="#standar-penilaian">Standar Penilaian Pendidikan</a></li>
+                        <li><a href="#standar-ptk">Standar Pendidik & Tenaga Kependidikan</a></li>
+                        <li><a href="#standar-sarpras">Standar Sarana & Prasarana</a></li>
+                        <li><a href="#standar-pengelolaan">Standar Pengelolaan</a></li>
+                        <li><a href="#standar-pembiayaan">Standar Pembiayaan Pendidikan</a></li>
+                    </ul>
+                </li>
+                <li><a href="#guru">Guru & Staf</a></li>
+                <li><a href="#galeri">Galeri</a></li>
+                <li><a href="#buku-tamu">Buku Tamu</a></li>
+                <li><a href="#spmb">SPMB</a></li>
+                <li><a href="#pelayanan-publik">Pelayanan Publik</a></li>
+                <li><a href="#inovasi">Inovasi Sekolah</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
         </nav>
     </header>
 
-    <!-- Teks Berjalan (Running Text) -->
+    <!-- Running Text -->
     <div class="running-text-container">
         <div class="running-text">
-            📢 Informasi: Selamat Datang di Website Resmi SMP Negeri 1 Galis Pamekasan | Pendaftaran SPMB Tahun Ajaran Baru Telah Dibuka! Mohon Mengisi Buku Tamu Digital Saat Berkunjung.
+            📢 Informasi: Selamat Datang di Website Resmi SMP Negeri 1 Galis Pamekasan | Pendaftaran SPMB Telah Dibuka! Mohon Mengisi Buku Tamu Digital Saat Berkunjung.
         </div>
     </div>
 
-    <!-- Banner Utama (Hero Section) -->
-    <section class="hero" id="beranda">
-        <h1>Selamat Datang di SMP Negeri 1 Galis Pamekasan</h1>
-        <p>Mewujudkan Generasi Berprestasi, Berkarakter Pancasila, Berbudaya, dan Menguasai Teknologi</p>
-        <a href="#buku-tamu" class="btn-cta">Isi Buku Tamu</a>
-        <a href="#spmb" class="btn-cta secondary">Daftar SPMB Online</a>
+    <!-- 1. HERO BANNER: LATAR BELAKANG FOTO SEKOLAH + UCAPAN & JARGON -->
+    <section id="home" class="hero-banner">
+        <div class="hero-content">
+            <h1>Selamat Datang di SMPN 1 Galis Pamekasan</h1>
+            <p class="jargon">✨ Berkarakter, Berprestasi, Unggul dalam IPTEK & Berwawasan Lingkungan ✨</p>
+        </div>
     </section>
 
     <div class="container">
 
-        <!-- Section Sekapur Sirih Kepala Sekolah -->
+        <!-- 2. SEKAPUR SIRIH KEPALA SEKOLAH -->
         <section id="sekapur-sirih">
             <h2>Sekapur Sirih Kepala Sekolah</h2>
             <div class="info-box sambutan-box">
                 <div class="kepsek-wrapper">
-                    <!-- Foto Kepala Sekolah -->
                     <div class="foto-kepsek-container">
-                        <img src="https://drive.google.com/thumbnail?id=1D2FJFV9_-omCQG_WEPsVVC1vKBXaDQL5&sz=w1000" alt="Kepala Sekolah">
-                        <p class="nama-kepsek"><strong>Yudia Pertiwi, S.Kom., M.Pd.</strong></p>
+                        <img src="https://via.placeholder.com/200x250?text=Foto+Kepala+Sekolah" alt="Foto Kepala Sekolah SMPN 1 Galis" class="foto-kepsek">
+                        <p class="nama-kepsek"><strong>Nama Kepala Sekolah, S.Pd., M.Pd.</strong></p>
                         <p class="jabatan-kepsek">Kepala SMPN 1 Galis Pamekasan</p>
                     </div>
 
-                    <!-- Teks Sambutan -->
                     <div class="teks-sambutan">
                         <h3>Assalamu’alaikum Warahmatullahi Wabarakatuh,</h3>
                         <br>
                         <p>
-                            Selamat datang di website resmi <strong>SMP Negeri 1 Galis Pamekasan</strong>. Puji syukur kita panjatkan kehadirat Allah SWT atas rahmat dan karunia-Nya, sehingga platform komunikasi digital ini dapat hadir untuk Anda semua.
+                            Selamat datang di website resmi <strong>SMP Negeri 1 Galis Pamekasan</strong>. Puji syukur kita panjatkan kehadirat Allah SWT atas rahmat dan karunia-Nya, sehingga platform digital ini dapat hadir sebagai sarana komunikasi dan informasi bagi masyarakat luas.
                         </p>
                         <br>
                         <p>
-                            Di era digital ini, akses informasi yang cepat dan transparan merupakan sebuah keharusan. Website ini dirancang sebagai sarana publikasi, silaturahmi, serta pusat informasi mengenai program pendidikan, prestasi, hingga pendaftaran peserta didik baru (SPMB) di SMPN 1 Galis.
+                            Website ini dirancang sebagai wadah informasi mengenai profil sekolah, pemenuhan 8 Standar Nasional Pendidikan (SNP), layanan publik, hingga pendaftaran siswa baru (SPMB) secara transparan dan terintegrasi.
                         </p>
                         <br>
                         <p>
-                            Kami terus berkomitmen memberikan layanan pendidikan terbaik guna mencetak generasi muda Pamekasan yang cerdas secara akademis, berkarakter Pancasila, serta tanggap terhadap perkembangan teknologi tanpa melupakan akar budaya bangsa.
-                        </p>
-                        <br>
-                        <p>
-                            Terima kasih atas kepercayaan Bapak/Ibu dan masyarakat kepada sekolah kami. Mari bersama-sama bersinergi mewujudkan masa depan anak-anak kita yang cemerlang.
+                            Kami berkomitmen penuh memberikan layanan pendidikan terbaik guna mencetak generasi yang berkarakter Pancasila, unggul dalam akademik, serta siap menghadapi perkembangan teknologi.
                         </p>
                         <br>
                         <p>Wassalamu’alaikum Warahmatullahi Wabarakatuh.</p>
@@ -406,267 +381,238 @@
             </div>
         </section>
 
-        <!-- Section Profil & Identitas Sekolah -->
+        <!-- 3. PROFIL SEKOLAH -->
         <section id="profil">
-            <h2>Profil & Identitas Sekolah</h2>
+            <h2>Profil Sekolah</h2>
             <div class="info-box">
-                <p><strong>SMP Negeri 1 Galis Pamekasan</strong> berkomitmen untuk menyelenggarakan pendidikan jenjang menengah pertama yang berkualitas, berdaya saing, serta membentuk karakter peserta didik yang berakhlak mulia, mandiri, dan berwawasan lingkungan.</p>
+                <p><strong>SMP Negeri 1 Galis Pamekasan</strong> adalah jenjang pendidikan menengah pertama unggulan di Kabupaten Pamekasan.</p>
                 <br>
-                <hr style="border: 0.5px solid #eee; margin: 1rem 0;">
-                <p><strong>NPSN:</strong> 20528000</p>
-                <p><strong>Kecamatan:</strong> Galis | <strong>Kabupaten:</strong> Pamekasan</p>
-                <p><strong>Status Sekolah:</strong> Negeri | <strong>Akreditasi:</strong> A</p>
+                <p><strong>NPSN:</strong> 20528000 | <strong>Status:</strong> Negeri | <strong>Akreditasi:</strong> A</p>
             </div>
         </section>
 
-        <!-- Section Fasilitas & Keunggulan -->
-        <section id="keunggulan">
-            <h2>Fasilitas & Program Keunggulan</h2>
+        <!-- 4. SECTION 8 SNP -->
+        <section id="snp">
+            <h2>8 Standar Nasional Pendidikan (SNP)</h2>
             <div class="grid">
-                <div class="card">
-                    <h3>📚 Kurikulum Merdeka</h3>
-                    <p>Fokus pada pengembangan minat, bakat, serta penguatan Profil Pelajar Pancasila.</p>
+                <div class="card" id="skl">
+                    <h3>1. SKL</h3>
+                    <p>Pencapaian standar kualifikasi kemampuan lulusan peserta didik.</p>
                 </div>
-                <div class="card">
-                    <h3>💻 Lab Komputer & IPA</h3>
-                    <p>Fasilitas penunjang praktikum digital dan sains yang modern dan memadai.</p>
+                <div class="card" id="standar-isi">
+                    <h3>2. Standar Isi</h3>
+                    <p>Ruang lingkup materi dan tingkat kompetensi kurikulum.</p>
                 </div>
-                <div class="card">
-                    <h3>🏆 Ekstrakurikuler</h3>
-                    <p>Wadah bakat siswa di bidang Pramuka, PMR, Olahraga, dan Seni Prestasi.</p>
+                <div class="card" id="standar-proses">
+                    <h3>3. Standar Proses</h3>
+                    <p>Pelaksanaan pembelajaran yang interaktif dan efisien.</p>
                 </div>
-                <div class="card">
-                    <h3>🌿 Sekolah Adiwiyata</h3>
-                    <p>Lingkungan belajar yang bersih, hijau, dan nyaman untuk proses pembelajaran.</p>
+                <div class="card" id="standar-penilaian">
+                    <h3>4. Standar Penilaian</h3>
+                    <p>Mekanisme, prosedur, dan instrumen penilaian hasil belajar.</p>
+                </div>
+                <div class="card" id="standar-ptk">
+                    <h3>5. Standar PTK</h3>
+                    <p>Kualifikasi akademik dan kompetensi tenaga pendidik & staf.</p>
+                </div>
+                <div class="card" id="standar-sarpras">
+                    <h3>6. Standar Sarpras</h3>
+                    <p>Kelengkapan fasilitas, lab, perpustakaan, dan ruang kelas.</p>
+                </div>
+                <div class="card" id="standar-pengelolaan">
+                    <h3>7. Standar Pengelolaan</h3>
+                    <p>Perencanaan, pelaksanaan, dan pengawasan kegiatan sekolah.</p>
+                </div>
+                <div class="card" id="standar-pembiayaan">
+                    <h3>8. Standar Pembiayaan</h3>
+                    <p>Pengelolaan dana operasional dan efisiensi anggaran sekolah.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Section Daftar Tenaga Pendidik -->
+        <!-- 5. GURU & STAF -->
         <section id="guru">
-            <h2>Tenaga Pendidik & Staf</h2>
+            <h2>Guru & Staf Pendidik</h2>
             <div class="grid">
                 <div class="card">
-                    <h3>Kepala Sekolah, S.Pd., M.Pd.</h3>
-                    <p><strong>Jabatan:</strong> Kepala Sekolah</p>
+                    <h3>Tenaga Pendidik MIPA</h3>
+                    <p>Tim Guru Matematika & IPA</p>
                 </div>
                 <div class="card">
-                    <h3>Tim Guru IPA & Matematika</h3>
-                    <p><strong>Jabatan:</strong> Guru Rumpun MIPA</p>
+                    <h3>Tenaga Pendidik Bahasa</h3>
+                    <p>Tim Guru Bahasa Indonesia & Inggris</p>
                 </div>
                 <div class="card">
-                    <h3>Tim Guru Bahasa & Sosial</h3>
-                    <p><strong>Jabatan:</strong> Guru Rumpun Bahasa & IPS</p>
+                    <h3>Tenaga Pendidik IPS & Agama</h3>
+                    <p>Tim Guru IPS, PPKn, & PAI</p>
                 </div>
                 <div class="card">
-                    <h3>Guru BK & Kesiswaan</h3>
-                    <p><strong>Jabatan:</strong> Bimbingan Konseling & Kesiswaan</p>
+                    <h3>Staf Tata Usaha</h3>
+                    <p>Tim Administrasi & Operasional</p>
                 </div>
             </div>
         </section>
 
-        <!-- Section Galeri Kegiatan -->
+        <!-- 6. GALERI -->
         <section id="galeri">
-            <h2>Galeri Kegiatan Sekolah</h2>
+            <h2>Galeri Kegiatan</h2>
             <div class="grid">
-                <div class="card">
-                    <h3>💻 Pembelajaran Digital</h3>
-                    <p>Pemanfaatan teknologi dalam proses belajar mengajar di kelas.</p>
-                </div>
-                <div class="card">
-                    <h3>🚩 Upacara Bendera</h3>
-                    <p>Membentuk karakter kedisiplinan dan jiwa nasionalisme siswa.</p>
-                </div>
-                <div class="card">
-                    <h3>🏕️ Latihan Pramuka</h3>
-                    <p>Pengembangan kepemimpinan, kemandirian, dan kepedulian sosial.</p>
-                </div>
-                <div class="card">
-                    <h3>🏆 Pembinaan Prestasi</h3>
-                    <p>Persiapan siswa mengikuti kompetisi akademik dan non-akademik.</p>
-                </div>
+                <div class="card"><h3>📷 Pembelajaran Lab</h3></div>
+                <div class="card"><h3>🚩 Upacara Bendera</h3></div>
+                <div class="card"><h3>🏕️ Pramuka & PMR</h3></div>
+                <div class="card"><h3>🏆 Prestasi Siswa</h3></div>
             </div>
         </section>
 
-        <!-- Section Buku Tamu Digital (Rekap Excel) -->
+        <!-- 7. BUKU TAMU DIGITAL -->
         <section id="buku-tamu">
-            <h2>📖 Buku Tamu Digital Sekolah</h2>
+            <h2>📖 Buku Tamu Digital</h2>
             <div class="info-box">
-                <p style="text-align: center; margin-bottom: 1.5rem; color: #555;">
-                    Bapak/Ibu Tamu Undangan, Orang Tua/Wali Murid, maupun Instansi silakan mengisi formulir di bawah ini saat berkunjung ke SMPN 1 Galis Pamekasan.
-                </p>
-
-                <div id="status-buku-tamu-success" class="alert alert-success">
-                    ✅ Terima kasih! Data kunjungan Anda telah berhasil disimpan di rekapitulasi Excel.
-                </div>
-
-                <div id="status-buku-tamu-error" class="alert alert-error">
-                    ⚠️ Gagal mengirim data. Silakan periksa koneksi internet Anda.
-                </div>
-
                 <form id="formBukuTamu" name="buku-tamu-smpn1galis">
                     <label for="nama_tamu">Nama Lengkap & Gelar:</label>
-                    <input type="text" id="nama_tamu" name="nama" placeholder="Contoh: Drs. H. Ahmad Fauzi, M.Si." required>
+                    <input type="text" id="nama_tamu" name="nama" required>
 
                     <label for="instansi">Instansi / Jabatan / Asal:</label>
-                    <input type="text" id="instansi" name="instansi" placeholder="Contoh: Dinas Pendidikan / Orang Tua Siswa Kelas 8" required>
+                    <input type="text" id="instansi" name="instansi" required>
 
                     <label for="no_hp">Nomor HP / WhatsApp:</label>
-                    <input type="tel" id="no_hp" name="no_hp" placeholder="Contoh: 081234567890" required>
+                    <input type="tel" id="no_hp" name="no_hp" required>
 
                     <label for="maksud">Maksud & Tujuan Kunjungan:</label>
-                    <textarea id="maksud" name="maksud" rows="4" placeholder="Tuliskan tujuan kunjungan Anda di SMPN 1 Galis..." required></textarea>
+                    <textarea id="maksud" name="maksud" rows="4" required></textarea>
 
                     <button type="submit" id="btnSubmitTamu">Simpan Data Buku Tamu</button>
                 </form>
             </div>
         </section>
 
-        <!-- Section Formulir SPMB Online -->
+        <!-- 8. FORMULIR SPMB ONLINE -->
         <section id="spmb">
-            <h2>Formulir Pendaftaran SPMB Online (SMP)</h2>
+            <h2>Pendaftaran SPMB Online</h2>
             <div class="info-box">
                 <form id="formSPMB" name="spmb-smpn1galis">
-                    <label for="nama_siswa">Nama Lengkap Calon Siswa:</label>
-                    <input type="text" id="nama_siswa" name="nama_siswa" placeholder="Contoh: Rian Pratama" required>
+                    <label for="nama_siswa">Nama Calon Siswa:</label>
+                    <input type="text" id="nama_siswa" name="nama_siswa" required>
 
-                    <label for="nisn">NISN (Nomor Induk Siswa Nasional):</label>
-                    <input type="text" id="nisn" name="nisn" placeholder="Contoh: 0081234567" required>
+                    <label for="nisn">NISN:</label>
+                    <input type="text" id="nisn" name="nisn" required>
 
                     <label for="sekolah_asal">SD / MI Asal:</label>
-                    <input type="text" id="sekolah_asal" name="sekolah_asal" placeholder="Contoh: SDN Galis 1 / MI Miftahul Ulum" required>
+                    <input type="text" id="sekolah_asal" name="sekolah_asal" required>
 
-                    <label for="gender">Jenis Kelamin:</label>
-                    <select id="gender" name="gender" required>
-                        <option value="">-- Pilih Jenis Kelamin --</option>
-                        <option value="Laki-laki">Laki-laki</option>
-                        <option value="Perempuan">Perempuan</option>
-                    </select>
-
-                    <label for="ortu">Nama Orang Tua / Wali:</label>
-                    <input type="text" id="ortu" name="ortu" placeholder="Nama Ayah / Ibu / Wali" required>
-
-                    <label for="hp_ortu">Nomor WhatsApp Aktif:</label>
-                    <input type="tel" id="hp_ortu" name="hp_ortu" placeholder="081234567890" required>
+                    <label for="hp_ortu">Nomor WA Orang Tua:</label>
+                    <input type="tel" id="hp_ortu" name="hp_ortu" required>
 
                     <button type="submit" id="btnSubmitSPMB">Kirim Pendaftaran SPMB</button>
                 </form>
             </div>
         </section>
 
-        <!-- Section Informasi Kontak -->
-        <section id="kontak">
-            <h2>Kontak & Alamat Sekolah</h2>
+        <!-- 9. PELAYANAN PUBLIK -->
+        <section id="pelayanan-publik">
+            <h2>Pelayanan Publik</h2>
             <div class="info-box">
-                <p><strong>📍 Alamat Lengkap:</strong> Jl. Raya Galis, Kec. Galis, Kab. Pamekasan, Jawa Timur</p>
-                <p><strong>📞 Telepon/WA:</strong> (0324) 123456 / 0812-3456-7890</p>
-                <p><strong>✉️ Email Resmi:</strong> smpn1galispamekasan@gmail.com</p>
-                <p><strong>🕒 Jam Operasional:</strong> Senin - Sabtu (07.00 - 13.30 WIB)</p>
+                <p>Layanan administrasi legalisir ijazah, surat keterangan siswa aktif, serta informasi publik sekolah dapat diakses pada jam kerja (07.30 - 13.00 WIB).</p>
+            </div>
+        </section>
+
+        <!-- 10. INOVASI SEKOLAH -->
+        <section id="inovasi">
+            <h2>Inovasi Sekolah</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>💡 E-Learning SMPN 1 Galis</h3>
+                    <p>Sistem pembelajaran digital terintegrasi.</p>
+                </div>
+                <div class="card">
+                    <h3>🌱 Program Green School</h3>
+                    <p>Inovasi pengelolaan lingkungan & sampah mandiri.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. KONTAK -->
+        <section id="kontak">
+            <h2>Kontak & Alamat</h2>
+            <div class="info-box">
+                <p><strong>📍 Alamat:</strong> Jl. Raya Galis, Kec. Galis, Kab. Pamekasan, Jawa Timur</p>
+                <p><strong>📞 Telepon:</strong> (0324) 123456 | <strong>✉️ Email:</strong> smpn1galispamekasan@gmail.com</p>
             </div>
         </section>
 
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 SMP Negeri 1 Galis Pamekasan. Seluruh Hak Cipta Dilindungi.</p>
     </footer>
 
-    <!-- JAVASCRIPT INTERNAL -->
+    <!-- JAVASCRIPT INTEGRASI GOOGLE SHEETS (MODE NO-CORS) -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Ganti string di bawah dengan URL Deploy Apps Script Google Sheets Anda
+            const SCRIPT_URL = "PASTE_URL_APPS_SCRIPT_DI_SINI";
 
-            // URL Google Apps Script milik Anda
-            const SCRIPT_URL_BUKU_TAMU = 'https://script.google.com/macros/s/AKfycbxYOUR_SCRIPT_ID_HERE/exec';
-
-            // 1. OTOMATISASI BUKU TAMU DIGITAL (EXCEL INTEGRATION)
-            const formBukuTamu = document.forms['buku-tamu-smpn1galis'];
-            const alertSuccess = document.getElementById('status-buku-tamu-success');
-            const alertError = document.getElementById('status-buku-tamu-error');
-            const btnSubmitTamu = document.getElementById('btnSubmitTamu');
-
+            // 1. PROSES FORM BUKU TAMU
+            const formBukuTamu = document.getElementById('formBukuTamu');
             if (formBukuTamu) {
                 formBukuTamu.addEventListener('submit', function(e) {
                     e.preventDefault();
+                    const btn = document.getElementById('btnSubmitTamu');
+                    btn.disabled = true;
+                    btn.innerText = '⏳ Menyimpan ke Spreadsheet...';
 
-                    btnSubmitTamu.disabled = true;
-                    btnSubmitTamu.innerHTML = '⏳ Menyimpan ke Rekap Excel...';
+                    let formData = new FormData(this);
+                    formData.append('form_type', 'buku_tamu');
 
-                    if (alertSuccess) alertSuccess.style.display = 'none';
-                    if (alertError) alertError.style.display = 'none';
-
-                    fetch(SCRIPT_URL_BUKU_TAMU, { 
+                    fetch(SCRIPT_URL, { 
                         method: 'POST', 
-                        body: new FormData(formBukuTamu) 
+                        body: formData,
+                        mode: 'no-cors' 
                     })
-                    .then(response => {
-                        btnSubmitTamu.disabled = false;
-                        btnSubmitTamu.innerHTML = 'Simpan Data Buku Tamu';
-
-                        if (alertSuccess) {
-                            alertSuccess.style.display = 'block';
-                        } else {
-                            alert('✅ Terima kasih! Data kunjungan Anda telah disimpan di rekapitulasi Excel.');
-                        }
-
-                        formBukuTamu.reset();
-
-                        setTimeout(() => {
-                            if (alertSuccess) alertSuccess.style.display = 'none';
-                        }, 6000);
+                    .then(() => {
+                        alert('✅ Data Buku Tamu berhasil tersimpan di Google Sheets!');
+                        this.reset();
+                        btn.disabled = false;
+                        btn.innerText = 'Simpan Data Buku Tamu';
                     })
-                    .catch(error => {
-                        btnSubmitTamu.disabled = false;
-                        btnSubmitTamu.innerHTML = 'Simpan Data Buku Tamu';
-
-                        console.error('Error saat menyimpan!', error.message);
-                        if (alertError) {
-                            alertError.style.display = 'block';
-                        } else {
-                            alert('⚠️ Terjadi kendala jaringan. Pastikan koneksi internet Anda aktif.');
-                        }
+                    .catch(err => {
+                        alert('⚠️ Terjadi kendala koneksi internet saat mengirim!');
+                        btn.disabled = false;
+                        btn.innerText = 'Simpan Data Buku Tamu';
                     });
                 });
             }
 
-            // 2. OTOMATISASI FORM SPMB ONLINE
-            const formSPMB = document.forms['spmb-smpn1galis'];
-            const btnSubmitSPMB = document.getElementById('btnSubmitSPMB');
-
+            // 2. PROSES FORM SPMB
+            const formSPMB = document.getElementById('formSPMB');
             if (formSPMB) {
                 formSPMB.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    
-                    if (btnSubmitSPMB) {
-                        btnSubmitSPMB.disabled = true;
-                        btnSubmitSPMB.innerHTML = '⏳ Memproses Pendaftaran...';
-                    }
+                    const btn = document.getElementById('btnSubmitSPMB');
+                    btn.disabled = true;
+                    btn.innerText = '⏳ Memproses Pendaftaran...';
 
-                    setTimeout(() => {
-                        alert('🎉 Pendaftaran SPMB Berhasil Dikirim!\nPanitia SPMB SMP Negeri 1 Galis Pamekasan akan segera menghubungi Anda.');
-                        if (btnSubmitSPMB) {
-                            btnSubmitSPMB.disabled = false;
-                            btnSubmitSPMB.innerHTML = 'Kirim Pendaftaran SPMB';
-                        }
-                        formSPMB.reset();
-                    }, 1200);
+                    let formData = new FormData(this);
+                    formData.append('form_type', 'spmb');
+
+                    fetch(SCRIPT_URL, { 
+                        method: 'POST', 
+                        body: formData,
+                        mode: 'no-cors' 
+                    })
+                    .then(() => {
+                        alert('🎉 Pendaftaran SPMB Berhasil tersimpan di Google Sheets!');
+                        this.reset();
+                        btn.disabled = false;
+                        btn.innerText = 'Kirim Pendaftaran SPMB';
+                    })
+                    .catch(err => {
+                        alert('⚠️ Terjadi kendala koneksi internet saat mengirim!');
+                        btn.disabled = false;
+                        btn.innerText = 'Kirim Pendaftaran SPMB';
+                    });
                 });
             }
-
-            // 3. SMOOTH SCROLLING NAVIGASI
-            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    if (targetSection) {
-                        targetSection.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
         });
     </script>
 </body>
